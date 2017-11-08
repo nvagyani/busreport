@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Bus Report</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+
+<body ng-app="busReportApp" ng-controller="reportController">
+<div class="container">
+    <h1>Bus Reports</h1>
+    <div ng-repeat="service in serviceDetails">
+        <h2>{{service.organisation}} - {{service.date}}</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Bus ID</th>
+                <th>Route Variant</th>
+                <th>Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="busData in service.busData">
+                <td>{{busData.busId}}</td>
+                <td>{{busData.routeVariant}}</td>
+                <td>{{busData.deviationFromTimetable}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <textarea class="form-control" rows="5" id="comment" placeholder="Enter notes here" ng-model="note"></textarea>
+            <button type="button" class="btn btn-primary"  ng-click='submit()'>Save Notes</button>
+        </div>
+        <ul>
+            <li ng-repeat='note in notes'>
+                {{note.name}}
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
