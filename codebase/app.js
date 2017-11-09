@@ -2,7 +2,7 @@
 var busReportApp = angular.module('busReportApp', []);
 
 // Define the 'ProductListController' controller on the 'heroStoreApp' module
-busReportApp.controller('reportController', function reportController($scope) {
+busReportApp.controller('reportController', ['$scope', 'busScheduleService', function reportController($scope, busScheduleService) {
     $scope.serviceDetails =
     [
         {
@@ -57,13 +57,8 @@ busReportApp.controller('reportController', function reportController($scope) {
                 }
             ]
         }
-    ];
-    $scope.notes = [];
-    $scope.submit = function() {
-        $scope.notes.push(
-            $scope.note
-        )
-        console.log($scope.notes);
-    };
-
-});
+    ];  
+    // busScheduleService.fetchBusData().then(function(response){
+    //     $scope.serviceDetails = response;    
+    // })    
+}]);
