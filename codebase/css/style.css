@@ -5,6 +5,7 @@
 
 .panel {
     border: 0;
+    box-shadow: none;
 }
 
 textarea {
@@ -31,6 +32,6 @@ table th {
     color: blue;
 }
 
-a.collapsed span {
+h3.collapsed span {
     transform: rotate(-180deg);
 }
