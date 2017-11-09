@@ -1,4 +1,16 @@
-﻿
+﻿html {
+    overflow-y: scroll;
+  }
+
+
+.panel {
+    border: 0;
+}
+
+textarea {
+    resize: none;
+}
+
 table th {
     background-color: steelblue;
 }
@@ -17,4 +29,8 @@ table th {
 
 .ontime{
     color: blue;
+}
+
+a.collapsed span {
+    transform: rotate(-180deg);
 }
