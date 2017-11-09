@@ -1,3 +1,33 @@
 <div class="row">
-     <h2>{{schedule.organisation}}-{{schedule.date}}</h2>
+    <h2>{{schedule.organisation}} - {{schedule.date}}</h2>
+    <table class="table table-striped margin-bottom">
+        <thead>
+            <tr>
+                <th>Bus ID</th>
+                <th>Route Variant</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="busData in schedule.busData">
+                <td>{{busData.busId}}</td>
+                <td><b>{{busData.routeVariant | limitTo :3}} </b>{{busData.routeVariant | limitTo :-4}} </td>
+                <td ng-class="{ 'late': busData.deviationFromTimetable > 0,  'early': busData.deviationFromTimetable < 0, 'ontime': busData.deviationFromTimetable == undefined }">{{ busData.deviationFromTimetable | deviation}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row">
+    <div ng-if="schedule.notes != undefined">
+        <div>Notes:</div>
+        <div ng-repeat="nte in schedule.notes track by $index">
+            <div>{{nte}}</div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+        <textarea class="form-control margin-bottom" rows="5" id="comment" placeholder="Enter notes here" ng-model="note"></textarea>
+        <button type="button" class="btn btn-primary" ng-click='addNotes()'>Save Notes</button>
+    </div>
 </div>

@@ -6,7 +6,13 @@ busReportApp.directive('busSchedule', [function(){
          },
          templateUrl: './bus-schedule/bus-schedule.template.html',
          link: function(scope){
-             
+             scope.addNotes = function(){
+                 if(scope.schedule.notes == undefined){
+                scope.schedule.notes = [];
+                }
+             scope.schedule.notes.push(scope.note);
+             scope.note = '';
+             }
          }
     }
 }] );

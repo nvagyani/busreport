@@ -2,3 +2,19 @@
 table th {
     background-color: steelblue;
 }
+
+.margin-bottom {
+    margin-bottom:15px;
+}
+
+.late {
+    color: red;
+}
+
+.early{
+    color: green;
+}
+
+.ontime{
+    color: blue;
+}
